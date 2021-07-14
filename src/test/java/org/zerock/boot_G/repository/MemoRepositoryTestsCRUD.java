@@ -10,13 +10,15 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.zerock.boot_G.entity.Memo;
 
 
 //@RunWith(SpringRunner.class)			//JUnit4 방식
 //@ExtendWith(SpringExtension.class)//JUnit4 방식
 @SpringBootTest
-public class MemoRepositoryTests {
+public class MemoRepositoryTestsCRUD {
 //CRUD 기능 테스트
 	
 	@Autowired
@@ -27,7 +29,7 @@ public class MemoRepositoryTests {
 	public void testClass() {
 		System.out.println("JpaRepository IF 자동생성 ProxyName === "+memoRepositoryIF.getClass().getName()); //@toString 사용
 	}
-	
+	//==============================JPA CRUD
 	@Test
 	@Disabled
 	public void testInsertDummies() {
@@ -58,7 +60,8 @@ public class MemoRepositoryTests {
 		System.out.println("======================");
 		if(result.isPresent()) {
 			Memo memo = result.get(); //Jpa 저장소에서 mno를 찾아서 불러온다.
-			System.out.println(memo);
+			System.out.println("Opt Type : "+result);
+			System.out.println("Class TYpe : "+memo);
 			
 		}
 	}
@@ -75,10 +78,18 @@ public class MemoRepositoryTests {
 	}
 	@Disabled
 	@Test
-	public void testDelete() {
-		Long mno = 1L;
+	public void testDeleteById() {
+		Long mno = 702L;
 		memoRepositoryIF.deleteById(mno);
 		System.out.println("Delect Complete : "+mno);
+	}
+	@Disabled
+	@Transactional
+	@Test
+	public void testDelete() {
+		Memo memo = memoRepositoryIF.getOne(700L);
+		memoRepositoryIF.delete(memo);
+		System.out.println(memo);
 	}
 	
 	@Test

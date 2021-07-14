@@ -15,6 +15,10 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+// @Getter을 이용해서 Getter 메서드 생성 get..() 
+//@Builder를 이용해서 객체 생성 builder(), build()
+//@Builder을 이용하기 위해서는 @AllArgsConstructor와 @NoArgsConstructor를 항상 같이 처리 
+
 public class Memo { //테이블
 	
 	@Id
