@@ -33,7 +33,12 @@ public class MemoRepositoryTestsCRUD {
 	@Test
 	@Disabled
 	public void testInsertDummies() {
-//		람다식 - 상속 class에 method가 1개일 때 new class객체() { @override T Method(param)}
+//		//일반식
+//		for(long i=701; i<=702;i++) {
+//			Memo memo = new Memo(i,"General..."+i);
+//			memoRepositoryIF.save(memo);
+//		}
+		
 //		IntStream.rangeClosed(1, 100).forEach(new IntConsumer() {
 //			
 //			@Override
@@ -41,11 +46,12 @@ public class MemoRepositoryTestsCRUD {
 //				Memo memo = Memo.builder().memoText("Sample..."+i).build();
 //				memoRepositoryIF.save(memo);
 //			}});
-		//람다식
-		IntStream.rangeClosed(1, 100).forEach(i-> {
+		
+//		람다식 - 상속 class에 method가 1개일 때 new class객체() { @override T Method(param)}
+			IntStream.rangeClosed(1, 100).forEach(i-> {
 				Long mno = (long)i;
-//				Memo memo = Memo.builder().mno(mno).memoText("Sampdate..."+i).build();
-				Memo memo = Memo.builder().memoText("Sampdate..."+i).build(); //자동발번
+				Memo memo = Memo.builder().mno(mno).memoText("Sampdate..."+i).build();
+//				Memo memo = Memo.builder().memoText("Sampdate..."+i).build(); //자동발번
 				memoRepositoryIF.save(memo);
 			});
 	}
@@ -95,7 +101,7 @@ public class MemoRepositoryTestsCRUD {
 	@Test
 	@Disabled
 	public void testUpdate() {
-		Long mno = 2L;
+		Long mno = 10L;
 		Memo memo = Memo.builder().mno(mno).memoText("Update..."+mno).build();
 		memoRepositoryIF.save(memo);
 		System.out.println(memo);
