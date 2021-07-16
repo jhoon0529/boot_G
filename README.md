@@ -1,11 +1,11 @@
 # boot_G 환경
 
 
-Spring boot
-JAVA
-DB : MariaDB
-JPA
-Gradle
-
+Spring boot<br>
+JAVA<br>
+DB : MariaDB<br>
+JPA<br>
+Gradle<br>
+<br><br>
 
 IDE : eclipse, Heidi
