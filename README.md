@@ -6,7 +6,6 @@ Java 8<br>
 DB : MariaDB<br>
 JPA<br>
 Gradle<br>
-
 view : JSP, HTML
 <br><br>
 
