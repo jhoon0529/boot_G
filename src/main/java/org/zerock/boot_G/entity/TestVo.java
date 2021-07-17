@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class TestVo {
-	private Long mbrNo;
+	private Long no;
 	private String id;
 	private String name;
 
