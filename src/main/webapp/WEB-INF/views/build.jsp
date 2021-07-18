@@ -26,8 +26,7 @@
 결과:<br>
 <p style="color: red; font-weight: bold;">${buildA }</p><hr>
 <b>BuildVO B : (tobuild 활용) <br></b>
-BuilderVO b = a.builder().id("Identify").age(35)
-							.singularItem("testE").build();
+BuilderVO b = <b>a.toBuilder()</b>.id("아메리카노").age(35).build();
 <br>
 결과:<br>
 <p style="color: red; font-weight: bold;">${buildB }</p>

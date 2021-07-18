@@ -22,13 +22,13 @@ import lombok.Singular;
 import lombok.ToString;
 
 @Data
+@Builder(toBuilder = true) //기존 객체데이터 남기고 수정
 @Entity
 @Table(name = "build_tbl")
 @ToString
-@Builder(toBuilder = true)
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor			//매개변수 무시 생성가능
+@NoArgsConstructor			//매개변수 없이 생성가능
 public class BuilderVO {
 	
 	@Id
@@ -52,15 +52,13 @@ public class BuilderVO {
 	@Column(name = "defaultitem")
 	@ElementCollection  
 	private List<String> defaultItem=new ArrayList<String>();
-//	private List<String> defaultItem = Arrays.asList("Default");
-//	private List<String> defaultItem;
 	
    @Column(name = "nullitem")
 	@ElementCollection
-	private List<String> nullItem;
+	private List<String> nullItem;	//초기화 선언 없을시 null
 	
    	@Column(name = "singularitem")
-	@Singular(value = "singularItem")
+	@Singular(value = "singularItem")	//입력시 수정이 아닌 +추가
 	@ElementCollection
 	private List<String> singularItem;
 }
